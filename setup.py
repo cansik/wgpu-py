@@ -14,7 +14,7 @@ with open(f"{NAME}/__init__.py") as fh:
 
 class bdist_wheel(_bdist_wheel):  # noqa: N801
     def finalize_options(self):
-        self.plat_name = get_platform()  # force a platform tag
+        self.plat_name = get_platform().replace("-", "_")  # force a platform tag
         _bdist_wheel.finalize_options(self)
 
 
